@@ -1,0 +1,7 @@
+*.pyc
+htmlcov
+.coverage
+coverage.xml
+.hub_test_huge_dev.env
+node_modules
+ui/tests/coverage

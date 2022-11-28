@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  hub_test_huge_dev:
+    container_name: hub_test_huge_dev
+    build:
+      context: hub_example
+    working_dir: /extension
+    command: cextrun -d
+    volumes: 
+      - .:/extension
+    env_file:
+      - .hub_test_huge_dev.env
+
+  hub_test_huge_bash:
+    container_name: hub_test_huge_bash
+    build:
+      context: hub_example
+    working_dir: /extension
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/extension
+    env_file:
+      - .hub_test_huge_dev.env
+
+  hub_test_huge_test:
+    container_name: hub_test_huge_test
+    build:
+      context: hub_example
+    working_dir: /extension
+    command: extension-test
+    volumes:
+      - .:/extension
+    env_file:
+      - .hub_test_huge_dev.env
